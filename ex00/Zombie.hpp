@@ -13,7 +13,7 @@ public:
   void announce(void);
 };
 
-#endif
-
 Zombie *newZombie(std::string name);
-void randomChump(std::string name);
+void randomChump(const std::string &);
+
+#endif
