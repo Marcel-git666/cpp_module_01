@@ -21,7 +21,7 @@ OBJ_DIR = obj
 # === Files ===
 
 # List of all source (.cpp) files
-SRCS = main.cpp randomChump.cpp newZombie.cpp \
+SRCS = main.cpp zombieHorde.cpp \
        Zombie.cpp
 
 # List of all header (.hpp) files for dependency tracking
