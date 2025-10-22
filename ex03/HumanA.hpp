@@ -11,7 +11,7 @@ class HumanA {
 
   public:
     HumanA(const std::string &name, const Weapon &weapon);
-    void attack(void);
+    void attack(void) const;
 };
 
 #endif
