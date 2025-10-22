@@ -21,10 +21,10 @@ OBJ_DIR = obj
 # === Files ===
 
 # List of all source (.cpp) files
-SRCS = main.cpp  \
+SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp \
 
 # List of all header (.hpp) files for dependency tracking
-HEADERS =  \
+HEADERS =  Weapon.hpp HumanA.hpp HumanB.hpp \
 
 
 # Generate the list of object files from the source files
