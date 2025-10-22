@@ -4,7 +4,7 @@
 class HumanB {
   private:
     std::string name;
-    Weapon *weapon;
+    const Weapon *weapon;
 
   public:
     HumanB(const std::string &name);
