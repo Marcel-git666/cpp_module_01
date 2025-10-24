@@ -7,11 +7,10 @@ std::string findAndReplace(const std::string &s1, const std::string &s2,
                            const std::string &line) {
     std::string replaced_line = line;
     std::string::size_type res = 0;
-    while ((res = replaced_line.find(s1, res + s2.length())) !=
-           std::string::npos) {
-
+    while ((res = replaced_line.find(s1, res)) != std::string::npos) {
         replaced_line.erase(res, s1.length());
         replaced_line.insert(res, s2);
+        res += s2.length();
     }
 
     return replaced_line + '\n';
@@ -42,7 +41,7 @@ int main(int argc, char **argv) {
     }
     std::string line;
     while (std::getline(readFile, line)) {
-        findAndReplace(s1, s2, line);
+        writeFile << findAndReplace(s1, s2, line);
     }
     return 0;
 }
