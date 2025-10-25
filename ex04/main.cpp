@@ -1,19 +1,19 @@
-#include <algorithm>
 #include <fstream>
 #include <iostream>
 #include <string>
 
 std::string findAndReplace(const std::string &s1, const std::string &s2,
                            const std::string &line) {
-    std::string replaced_line = line;
-    std::string::size_type res = 0;
-    while ((res = replaced_line.find(s1, res)) != std::string::npos) {
-        replaced_line.erase(res, s1.length());
-        replaced_line.insert(res, s2);
-        res += s2.length();
+    std::string replaced_line = "";
+    std::string::size_type found_pos = 0;
+    std::string::size_type last_pos = 0;
+    while ((found_pos = line.find(s1, last_pos)) != std::string::npos) {
+        replaced_line += line.substr(last_pos, found_pos - last_pos);
+        replaced_line += s2;
+        last_pos = found_pos + s1.length();
     }
-
-    return replaced_line + '\n';
+    replaced_line += line.substr(last_pos);
+    return replaced_line;
 }
 
 int main(int argc, char **argv) {
@@ -40,8 +40,8 @@ int main(int argc, char **argv) {
         return 1;
     }
     std::string line;
-    while (std::getline(readFile, line)) {
-        writeFile << findAndReplace(s1, s2, line);
-    }
+    std::getline(readFile, line, '\0');
+    writeFile << findAndReplace(s1, s2, line);
+
     return 0;
 }
