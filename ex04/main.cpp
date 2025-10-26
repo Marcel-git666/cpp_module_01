@@ -31,6 +31,9 @@ int main(int argc, char **argv) {
         std::cout << "Error reading file " << filename << '\n';
         return 1;
     }
+    std::string line;
+    std::getline(readFile, line, '\0');
+    readFile.close();
     std::cout << "Replacing " << s1 << " for " << s2 << '\n';
     std::ofstream writeFile;
     std::string wFilename = filename + ".replace";
@@ -39,9 +42,7 @@ int main(int argc, char **argv) {
         std::cout << "Error writing to file " << wFilename << '\n';
         return 1;
     }
-    std::string line;
-    std::getline(readFile, line, '\0');
     writeFile << findAndReplace(s1, s2, line);
-
+    writeFile.close();
     return 0;
 }
