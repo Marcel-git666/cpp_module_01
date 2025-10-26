@@ -2,6 +2,7 @@ main
 zombie
 *.replace
 harl
+harlFilter
 
 # Prerequisites
 *.d
