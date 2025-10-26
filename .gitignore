@@ -1,6 +1,7 @@
 main
 zombie
 *.replace
+harl
 
 # Prerequisites
 *.d

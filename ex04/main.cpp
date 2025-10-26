@@ -33,6 +33,11 @@ int main(int argc, char **argv) {
     }
     std::string line;
     std::getline(readFile, line, '\0');
+    if (readFile.fail() && !readFile.eof()) {
+        std::cout << "Error occurred while reading file " << filename << '\n';
+        readFile.close();
+        return 1;
+    }
     readFile.close();
     std::cout << "Replacing " << s1 << " for " << s2 << '\n';
     std::ofstream writeFile;
@@ -43,6 +48,12 @@ int main(int argc, char **argv) {
         return 1;
     }
     writeFile << findAndReplace(s1, s2, line);
+    if (writeFile.fail()) {
+        std::cout << "Error occurred while writing to file " << wFilename
+                  << '\n';
+        writeFile.close();
+        return 1;
+    }
     writeFile.close();
     return 0;
 }

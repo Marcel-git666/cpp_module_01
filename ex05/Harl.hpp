@@ -6,6 +6,16 @@
 class Harl {
   private:
     void debug(void);
+    void info(void);
+    void warning(void);
+    void error(void);
+
+    struct HarlPair {
+        std::string levelName;
+        void (Harl::*functionPtr)(void);
+    };
+
+    HarlPair lookupTable[4];
 
   public:
     Harl();
