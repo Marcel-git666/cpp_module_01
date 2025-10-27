@@ -15,7 +15,7 @@ class Harl {
         void (Harl::*functionPtr)();
     };
 
-    HarlPair lookupTable[4];
+    static HarlPair lookupTable[4];
 
   public:
     Harl();

@@ -1,6 +1,8 @@
 #include "Harl.hpp"
 #include <iostream>
 
+Harl::HarlPair Harl::lookupTable[4];
+
 Harl::Harl() {
     lookupTable[0].levelName = "DEBUG";
     lookupTable[0].functionPtr = &Harl::debug;

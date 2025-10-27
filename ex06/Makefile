@@ -1,7 +1,7 @@
 # === Variables ===
 
 # The name of the executable
-NAME = harl
+NAME = harlFilter
 
 # The compiler
 CC = c++
