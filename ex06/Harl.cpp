@@ -1,18 +1,12 @@
 #include "Harl.hpp"
 #include <iostream>
 
-Harl::HarlPair Harl::lookupTable[4];
+Harl::HarlPair Harl::lookupTable[4] = {{"DEBUG", &Harl::debug},
+                                       {"INFO", &Harl::info},
+                                       {"WARNING", &Harl::warning},
+                                       {"ERROR", &Harl::error}};
 
-Harl::Harl() {
-    lookupTable[0].levelName = "DEBUG";
-    lookupTable[0].functionPtr = &Harl::debug;
-    lookupTable[1].levelName = "INFO";
-    lookupTable[1].functionPtr = &Harl::info;
-    lookupTable[2].levelName = "WARNING";
-    lookupTable[2].functionPtr = &Harl::warning;
-    lookupTable[3].levelName = "ERROR";
-    lookupTable[3].functionPtr = &Harl::error;
-}
+Harl::Harl() {}
 
 void Harl::complain(std::string level) {
     for (int i = 0; i < 4; i++) {
